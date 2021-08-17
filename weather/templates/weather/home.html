@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Pyscript Tags Analyzer{% endblock title %}
+
+{% block active %} active{% endblock active %}
+
+{% block content %}
+<div class="col-md-8 p-4 text-white">       
+    <h4 class="fst-italic">Weather Information - Get Live Updated</h4>
+    <hr class="bg-light">
+    <h1 class="display-4 fst-italic">Enter Your City</h1>
+
+    <form method="GET">
+        <div class="form-group">
+            <label for="city"></label>
+            <input type="text" class="form-control" id="city" name='city' value="{{request.GET.city}}" placeholder="City............">
+        </div>
+        <button type="submit" class="btn btn-primary">Get Result</button>
+    </form> 
+
+    <div class="jumbotron my-4 text-dark">
+          
+        <p class="lead">
+            {% if result %}
+            <h3 class="display-6">View Your Results...........</h3><hr> 
+            <h5 class="fst-italic">
+                City: <span>{{result.region}}</span>
+            </h5> 
+
+            <h5 class="fst-italic">
+                <span>Time: {{ result.dayhour }}</span>
+            </h5> 
+
+            <h5 class="fst-italic"> 
+                <span>Temperature: {{ result.temp_now }}</span>
+            </h5> 
+
+            <h5 class="fst-italic">
+                <span>Update:  {{ result.weather_now }}</span>
+            </h5>
+            {% endif %}
+        </p>
+    </div>
+ 
+ </div>
+{% endblock content %}
+
