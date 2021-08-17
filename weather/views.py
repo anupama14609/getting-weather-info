@@ -2,6 +2,7 @@ from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 import lxml
+from requests.sessions import session
 
 # get weather information with Linux User Agent
 def get_html_content_WA(request):   
@@ -40,3 +41,4 @@ def home(request):
 
     context = {'result': result}
     return render(request, 'weather/home.html', context)
+
